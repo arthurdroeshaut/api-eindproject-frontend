@@ -41,7 +41,6 @@
         <button x-on:click="getData">Send get request</button>
         vehicle of your character: <strong x-text="responsedata">Placeholder</strong>
     </div>
-
     <h3> create your own Character!</h3>
     <div>
     <div x-data="{
@@ -81,7 +80,7 @@
     <div>
         <label> Lightsaber_Color:</label>
         <input type="text" x-model="lightsaber_color"/>
-    </div>
+    <div>
     <button x-on:click="Createyourowncharacter">CharacterCreate</button>
     <p>Chosen name of the character: <strong x-text="responsedata.name"></strong></p>
     <p>Chosen species: <strong x-text="responsedata.species"></strong></p>
