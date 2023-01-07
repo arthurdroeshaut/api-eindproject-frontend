@@ -43,7 +43,7 @@
 <div
     x-data="{
         responsedata: null,
-        star_wars_character: null,
+        name: null,
         lightsaber_color: null,
         birthplace: null,
         species: null,
@@ -90,7 +90,7 @@
 <div
     x-data="{
         responsedata: null,
-        name: null,
+        vehiclename: null,
         type: null,
         affiliation: null,
 
@@ -98,7 +98,7 @@
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles', {
               method: 'POST',
               body: JSON.stringify({
-                    name: this.name,
+                    name: this.vehiclename,
                     type: this.type,
                     affiliation: this.affiliation,
               }),
@@ -111,7 +111,7 @@
     }">
     <div>
         <label> Name of your Vehicle:</label>
-        <input type="text" x-model="name"/>
+        <input type="text" x-model="vehiclename"/>
     </div>
     <div>
         <label> type of vehicle:</label>
@@ -123,9 +123,9 @@
 
     </div>
     <button x-on:click="Createyourownvehicle">vehiclecreate</button>
-    <p>Chosen vehicle name: <strong x-text="responsedata.star_wars_character"></strong></p>
-    <p>Chosen vehicle type: <strong x-text="responsedata.lightsaber_color"></strong></p>
-    <p>Chosen affiliation: <strong x-text="responsedata.lightsaber_color"></strong></p>
+    <p>Chosen vehicle name: <strong x-text="responsedata.vehiclename"></strong></p>
+    <p>Chosen vehicle type: <strong x-text="responsedata.type"></strong></p>
+    <p>Chosen affiliation: <strong x-text="responsedata.affiliation"></strong></p>
     </div>
 <h3> create your own Movie!</h3>
 <div
@@ -164,9 +164,9 @@
         <input type="text" x-model="director"/>
     </div>
     <button x-on:click="Createyourownmovie">CharacterCreate</button>
-    <p>Chosen title of the movie: <strong x-text="responsedata.star_wars_character"></strong></p>
-    <p>Chosen release date : <strong x-text="responsedata.lightsaber_color"></strong></p>
-    <p>Chosen director: <strong x-text="responsedata.birthplace"></strong></p>
+    <p>Chosen title of the movie: <strong x-text="responsedata.title"></strong></p>
+    <p>Chosen release date : <strong x-text="responsedata.release_date"></strong></p>
+    <p>Chosen director: <strong x-text="responsedata.director"></strong></p>
 </div>
 </body>
 </html>
