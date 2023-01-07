@@ -49,7 +49,7 @@
         species: null,
 
         async Createyourowncharacter() {
-            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/characters', {
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/character/create', {
               method: 'POST',
               body: JSON.stringify({
                     name: this.name,
@@ -95,7 +95,7 @@
         affiliation: null,
 
         async Createyourownvehicle() {
-            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles', {
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicle/create', {
               method: 'POST',
               body: JSON.stringify({
                     vehiclename: this.vehiclename,
@@ -136,7 +136,7 @@
         director: null,
 
         async Createyourownmovie() {
-            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/movies', {
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/movie/create', {
               method: 'POST',
               body: JSON.stringify({
                     title: this.title,
