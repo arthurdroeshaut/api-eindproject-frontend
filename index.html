@@ -8,62 +8,37 @@
     <title> Star Wars API</title>
 <body>
     <h1> Welcome to the Star Wars API</h1>
-    <h2> First you can click on the send request button to get random values from the Star Wars universe.</h2>
-        <div x-data="{
+    <h2> you can create your own user here filling in these 2 forms.</h2>
+    <h2> you can click here to generate your token. </h2>
+    <h3> now you can click on the send get request button to get random values from the Star Wars universe.</h3>
+    <div x-data="{
         responsedata: null,
         async getData() {
-            this.responsedata = await (await fetch('https://randomizer-service-arthurdroeshaut.cloud.okteto.net/StarWars/Characters')).json();
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/characters/random/name')).json();
         }
     }">
         <button x-on:click="getData">Send get request</button>
-        Name of your Character: <strong x-text="responsedata">Placeholder</strong>
+        Random name of your Character?: <strong x-text="responsedata">Placeholder</strong>
     </div>
     <div x-data="{
         responsedata: null,
         async getData() {
-            this.responsedata = await (await fetch('https://randomizer-service-arthurdroeshaut.cloud.okteto.net/StarWars/Characters/LightsaberColor')).json();
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/movies/random/title')).json();
         }
     }">
         <button x-on:click="getData">Send get request</button>
-        Colour of your Lightsaber?: <strong x-text="responsedata">Placeholder</strong>
+        Movie your character plays in?: <strong x-text="responsedata">Placeholder</strong>
     </div>
     <div x-data="{
         responsedata: null,
         async getData() {
-            this.responsedata = await (await fetch('https://randomizer-service-arthurdroeshaut.cloud.okteto.net/StarWars/Characters/Birthplace')).json();
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles/random/type')).json();
         }
     }">
         <button x-on:click="getData">Send get request</button>
-        Your place of birth in the Star Wars universes?: <strong x-text="responsedata">Placeholder</strong>
-   </div>
-    <div x-data="{
-        responsedata: null,
-        async getData() {
-            this.responsedata = await (await fetch('https://randomizer-service-arthurdroeshaut.cloud.okteto.net/StarWars/Characters/Species')).json();
-        }
-    }">
-        <button x-on:click="getData">Send get request</button>
-        What Star Wars related species are you?: <strong x-text="responsedata">Placeholder</strong>
+        vehicle of your character: <strong x-text="responsedata">Placeholder</strong>
     </div>
-    </div>
-    <div x-data="{
-        responsedata: null,
-        async getData() {
-            this.responsedata = await (await fetch('https://randomizer-service-arthurdroeshaut.cloud.okteto.net/StarWars/Characters/Rank')).json();
-        }
-    }">
-        <button x-on:click="getData">Send get request</button>
-        What is your rank? could be either a Jedi rank or a Sith rank.: <strong x-text="responsedata">Placeholder</strong>
-    </div>
-    <div x-data="{
-        responsedata: null,
-        async getData() {
-            this.responsedata = await (await fetch('https://randomizer-service-arthurdroeshaut.cloud.okteto.net/StarWars/Characters/Ship')).json();
-        }
-    }">
-        <button x-on:click="getData">Send get request</button>
-        What is the name of your ship or your ship type?: <strong x-text="responsedata">Placeholder</strong>
-    </div>
+
     <h3> create your own Character!</h3>
 <div
     x-data="{
@@ -72,18 +47,15 @@
         lightsaber_color: null,
         birthplace: null,
         species: null,
-        rank: null,
-        ship: null,
-        async createyourownpost() {
-            this.responsedata = await (await fetch('https://randomizer-service-arthurdroeshaut.cloud.okteto.net/StarWars/CreateYourOwn', {
+
+        async get a random character() {
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/characters', {
               method: 'POST',
               body: JSON.stringify({
-                    star_wars_character: this.star_wars_character,
+                    name: this.name,
                     lightsaber_color: this.lightsaber_color,
                     birthplace: this.birthplace,
                     species: this.species,
-                    rank: this.rank,
-                    ship: this.ship
               }),
               headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -94,7 +66,7 @@
     }">
     <div>
         <label> Name of your Character:</label>
-        <input type="text" x-model="star_wars_character"/>
+        <input type="text" x-model="name"/>
     </div>
     <div>
         <label> LightSaber_Color:</label>
@@ -108,22 +80,94 @@
         <label> Species:</label>
         <input type="text" x-model="species"/>
     </div>
-    <div>
-        <label> Rank:</label>
-        <input type="text" x-model="rank"/>
-    </div>
-    <div>
-        <label> Ship:</label>
-        <input type="text" x-model="ship"/>
-    </div>
     <button x-on:click="createyourownpost">CharacterCreate</button>
-    <p>Chosen name of your character: <strong x-text="responsedata.star_wars_character"></strong></p>
+    <p>Chosen name of your character: <strong x-text="responsedata.name"></strong></p>
     <p>Chosen color of the lightsaber: <strong x-text="responsedata.lightsaber_color"></strong></p>
     <p>Chosen place of birth: <strong x-text="responsedata.birthplace"></strong></p>
     <p>Chosen species: <strong x-text="responsedata.species"></strong></p>
-    <p>Chosen rank: <strong x-text="responsedata.rank"></strong></p>
-    <p>Chosen type of ship or name of the ship: <strong x-text="responsedata.ship"></strong></p>
+    </div>
+<h3> Create your own vehicle!</h3>
+<div
+    x-data="{
+        responsedata: null,
+        name: null,
+        type: null,
+        affiliation: null,
 
+        async get a random character() {
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles', {
+              method: 'POST',
+              body: JSON.stringify({
+                    name: this.name,
+                    type: this.type,
+                    affiliation: this.affiliation,
+              }),
+              headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              },
+            })).json();
+            console.log(this.responsedata);
+        },
+    }">
+    <div>
+        <label> Name of your Vehicle:</label>
+        <input type="text" x-model="star_wars_character"/>
+    </div>
+    <div>
+        <label> type of vehicle:</label>
+        <input type="text" x-model="lightsaber_color"/>
+    </div>
+    <div>
+        <label> vehicles affiliation:</label>
+        <input type="text" x-model="birthplace"/>
+
+    </div>
+    <button x-on:click="createyourownpost">vehiclecreate</button>
+    <p>Chosen vehicle name: <strong x-text="responsedata.star_wars_character"></strong></p>
+    <p>Chosen vehicle type: <strong x-text="responsedata.lightsaber_color"></strong></p>
+    <p>Chosen affiliation: <strong x-text="responsedata.lightsaber_color"></strong></p>
+    </div>
+<h3> create your own Movie!</h3>
+<div
+    x-data="{
+        responsedata: null,
+        star_wars_character: null,
+        lightsaber_color: null,
+        birthplace: null,
+        species: null,
+
+        async get a random character() {
+            this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/movies', {
+              method: 'POST',
+              body: JSON.stringify({
+                    title: this.title,
+                    release_date: this.release_date,
+                    director: this.director,
+
+              }),
+              headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              },
+            })).json();
+            console.log(this.responsedata);
+        },
+    }">
+    <div>
+        <label> Title of the movie:</label>
+        <input type="text" x-model="title"/>
+    </div>
+    <div>
+        <label> Release date:</label>
+        <input type="text" x-model="release_date"/>
+    </div>
+    <div>
+        <label> Who directed the movie:</label>
+        <input type="text" x-model="director"/>
+    </div>
+    <button x-on:click="createyourownpost">CharacterCreate</button>
+    <p>Chosen title of the movie: <strong x-text="responsedata.star_wars_character"></strong></p>
+    <p>Chosen release date : <strong x-text="responsedata.lightsaber_color"></strong></p>
+    <p>Chosen director: <strong x-text="responsedata.birthplace"></strong></p>
 </div>
 </body>
 </html>
