@@ -40,8 +40,8 @@
     </div>
 
     <h3> create your own Character!</h3>
-<div
-    x-data="{
+<div>
+    <div x-data="{
         responsedata: null,
         name: null,
         lightsaber_color: null,
@@ -63,6 +63,7 @@
             })).json();
         },
     }">
+    </div>
     <div>
         <label> Name of your Character:</label>
         <input type="text" x-model="name"/>
@@ -86,8 +87,8 @@
     <p>Chosen species: <strong x-text="responsedata.species"></strong></p>
     </div>
 <h3> Create your own vehicle!</h3>
-<div
-    x-data="{
+<div>
+    <div x-data="{
         responsedata: null,
         vehiclename: null,
         type: null,
@@ -97,7 +98,7 @@
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles', {
               method: 'POST',
               body: JSON.stringify({
-                    name: this.vehiclename,
+                    vehiclename: this.vehiclename,
                     type: this.type,
                     affiliation: this.affiliation,
               }),
@@ -107,6 +108,7 @@
             })).json();
         },
     }">
+    </div>
     <div>
         <label> Name of your Vehicle:</label>
         <input type="text" x-model="vehiclename"/>
