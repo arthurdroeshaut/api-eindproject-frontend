@@ -48,7 +48,7 @@
         birthplace: null,
         species: null,
 
-        async get a random character() {
+        async get_random_character() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/characters', {
               method: 'POST',
               body: JSON.stringify({
@@ -94,7 +94,7 @@
         type: null,
         affiliation: null,
 
-        async get a random vehicle() {
+        async get_random_vehicle() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles', {
               method: 'POST',
               body: JSON.stringify({
@@ -135,7 +135,7 @@
         release_date: null,
         director: null,
 
-        async get a random movie() {
+        async get_random_movie() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/movies', {
               method: 'POST',
               body: JSON.stringify({
