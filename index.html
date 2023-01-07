@@ -48,7 +48,7 @@
         birthplace: null,
         species: null,
 
-        async get_random_character() {
+        async Createyourowncharacter() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/characters', {
               method: 'POST',
               body: JSON.stringify({
@@ -80,7 +80,7 @@
         <label> Species:</label>
         <input type="text" x-model="species"/>
     </div>
-    <button x-on:click="createyourownpost">CharacterCreate</button>
+    <button x-on:click="Createyourowncharacter">CharacterCreate</button>
     <p>Chosen name of your character: <strong x-text="responsedata.name"></strong></p>
     <p>Chosen color of the lightsaber: <strong x-text="responsedata.lightsaber_color"></strong></p>
     <p>Chosen place of birth: <strong x-text="responsedata.birthplace"></strong></p>
@@ -94,7 +94,7 @@
         type: null,
         affiliation: null,
 
-        async get_random_vehicle() {
+        async Createyourownvehicle() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles', {
               method: 'POST',
               body: JSON.stringify({
@@ -122,7 +122,7 @@
         <input type="text" x-model="affiliation"/>
 
     </div>
-    <button x-on:click="createyourownpost">vehiclecreate</button>
+    <button x-on:click="Createyourownvehicle">vehiclecreate</button>
     <p>Chosen vehicle name: <strong x-text="responsedata.star_wars_character"></strong></p>
     <p>Chosen vehicle type: <strong x-text="responsedata.lightsaber_color"></strong></p>
     <p>Chosen affiliation: <strong x-text="responsedata.lightsaber_color"></strong></p>
@@ -135,7 +135,7 @@
         release_date: null,
         director: null,
 
-        async get_random_movie() {
+        async Createyourownmovie() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/movies', {
               method: 'POST',
               body: JSON.stringify({
@@ -163,7 +163,7 @@
         <label> Who directed the movie:</label>
         <input type="text" x-model="director"/>
     </div>
-    <button x-on:click="createyourownpost">CharacterCreate</button>
+    <button x-on:click="Createyourownmovie">CharacterCreate</button>
     <p>Chosen title of the movie: <strong x-text="responsedata.star_wars_character"></strong></p>
     <p>Chosen release date : <strong x-text="responsedata.lightsaber_color"></strong></p>
     <p>Chosen director: <strong x-text="responsedata.birthplace"></strong></p>
