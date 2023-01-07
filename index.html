@@ -129,7 +129,7 @@
     </div>
 <h3> create your own Movie!</h3>
 <div
-    x-data="{
+    <div x-data="{
         responsedata: null,
         title: null,
         release_date: null,
@@ -150,6 +150,7 @@
             })).json();
         },
     }">
+    </div>
     <div>
         <label> Title of the movie:</label>
         <input type="text" x-model="title"/>
