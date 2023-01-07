@@ -11,6 +11,34 @@
     <body>
     <h1> Welcome to the Star Wars API</h1>
     <h2> you can create your own user here filling in these 2 forms.</h2>
+    <div x-data="{
+        email: null,
+        password: null,
+        token: null,
+        async getToken() {
+           const paramsObj = {grant_type: '', username: this.email, password: this.password, scope: '', client_secret:''};
+           const searchParams = new URLSearchParams(paramsObj);
+           this.token = await (await fetch('https://system-service-dennisraaijmakers.cloud.okteto.net/token',
+           {
+            method: 'POST',
+            body: searchParams,
+            headers: {
+                'Content-type': 'application/x-www-form-urlencoded',
+                'accept': 'application/json' ,
+            },
+            })).json();
+            console.log(this.token);
+        }
+    }">
+    <input type="text" x-model="email" placeholder="Email">
+    <input type="password" x-model="password" placeholder="Password">
+    <button x-on:click="getToken">get token</button>
+    <table>
+        <tr>
+            <td class="small_token" x-text="token.access_token"></td>
+        </tr>
+    </table>
+</div>
     <h2> you can click here to generate your token. </h2>
     <h3> now you can click on the send get request button to get random values from the Star Wars universe.</h3>
     
