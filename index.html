@@ -18,7 +18,7 @@
         async getToken() {
            const paramsObj = {grant_type: '', username: this.email, password: this.password, scope: '', client_secret:''};
            const searchParams = new URLSearchParams(paramsObj);
-           this.token = await (await fetch('https://system-service-dennisraaijmakers.cloud.okteto.net/token',
+           this.token = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/token',
            {
             method: 'POST',
             body: searchParams,
