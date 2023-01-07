@@ -18,7 +18,7 @@
         }
     }">
         <button x-on:click="getData">Send get request</button>
-        Random name of your Character?: <strong x-text="responsedata">Placeholder</strong>
+        Random name of your Character: <strong x-text="responsedata">Placeholder</strong>
     </div>
     <div x-data="{
         responsedata: null,
@@ -27,7 +27,7 @@
         }
     }">
         <button x-on:click="getData">Send get request</button>
-        Movie your character plays in?: <strong x-text="responsedata">Placeholder</strong>
+        Movie your character plays in: <strong x-text="responsedata">Placeholder</strong>
     </div>
     <div x-data="{
         responsedata: null,
@@ -94,7 +94,7 @@
         type: null,
         affiliation: null,
 
-        async get a random character() {
+        async get a random vehicle() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/vehicles', {
               method: 'POST',
               body: JSON.stringify({
@@ -111,15 +111,15 @@
     }">
     <div>
         <label> Name of your Vehicle:</label>
-        <input type="text" x-model="star_wars_character"/>
+        <input type="text" x-model="name"/>
     </div>
     <div>
         <label> type of vehicle:</label>
-        <input type="text" x-model="lightsaber_color"/>
+        <input type="text" x-model="type"/>
     </div>
     <div>
         <label> vehicles affiliation:</label>
-        <input type="text" x-model="birthplace"/>
+        <input type="text" x-model="affiliation"/>
 
     </div>
     <button x-on:click="createyourownpost">vehiclecreate</button>
@@ -131,12 +131,11 @@
 <div
     x-data="{
         responsedata: null,
-        star_wars_character: null,
-        lightsaber_color: null,
-        birthplace: null,
-        species: null,
+        title: null,
+        release_date: null,
+        director: null,
 
-        async get a random character() {
+        async get a random movie() {
             this.responsedata = await (await fetch('https://system-service-arthurdroeshaut.cloud.okteto.net/movies', {
               method: 'POST',
               body: JSON.stringify({
