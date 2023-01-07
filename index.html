@@ -88,8 +88,8 @@
     <p>Chosen place of birth: <strong x-text="responsedata.birthplace"></strong></p>
     <p>Chosen color of the lightsaber: <strong x-text="responsedata.lightsaber_color"></strong></p>
     </div>
-<h3> Create your own vehicle!</h3>
-<div>
+    <h3> Create your own vehicle!</h3>
+    <div>
     <div x-data="{
         responsedata: null,
         vehiclename: null,
@@ -117,7 +117,6 @@
     <div>
         <label> type of vehicle:</label>
         <input type="text" x-model="type"/>
-    </div>
     <div>
         <label> vehicles affiliation:</label>
         <input type="text" x-model="affiliation"/>
@@ -129,8 +128,8 @@
     <p>Chosen vehicle type: <strong x-text="responsedata.type"></strong></p>
     <p>Chosen affiliation: <strong x-text="responsedata.affiliation"></strong></p>
     </div>
-<h3> create your own Movie!</h3>
-<div>
+    <h3> create your own Movie!</h3>
+    <div>
     <div x-data="{
         responsedata: null,
         title: null,
@@ -163,7 +162,6 @@
     <div>
         <label> Who directed the movie:</label>
         <input type="text" x-model="director"/>
-    </div>
     <div>
     <button x-on:click="Createyourownmovie">CharacterCreate</button>
     <p>Chosen title of the movie: <strong x-text="responsedata.title"></strong></p>
