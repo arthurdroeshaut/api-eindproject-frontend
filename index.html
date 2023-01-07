@@ -5,7 +5,9 @@
     <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
     <meta charset="UTF-8">
     <title> Star Wars API</title>
+
     </head>
+
     <body>
     <h1> Welcome to the Star Wars API</h1>
     <h2> you can create your own user here filling in these 2 forms.</h2>
@@ -41,7 +43,7 @@
     </div>
 
     <h3> create your own Character!</h3>
-<div>
+    <div>
     <div x-data="{
         responsedata: null,
         name: null,
@@ -109,7 +111,6 @@
             })).json();
         },
     }">
-    </div>
     <div>
         <label> Name of your Vehicle:</label>
         <input type="text" x-model="vehiclename"/>
@@ -151,7 +152,6 @@
             })).json();
         },
     }">
-    </div>
     <div>
         <label> Title of the movie:</label>
         <input type="text" x-model="title"/>
